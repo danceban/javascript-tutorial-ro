@@ -1,41 +1,41 @@
-# Comparisons
+# Comparatii
 
-Many comparison operators we know from maths:
+Din matematica cunoastem mai multi operatori de comparatie:
 
-- Greater/less than: <code>a &gt; b</code>, <code>a &lt; b</code>.
-- Greater/less than or equals: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
-- Equality check is written as `a == b` (please note the double equation sign `=`. A single symbol `a = b` would mean an assignment).
-- Not equals. In maths the notation is <code>&ne;</code>, in JavaScript it's written as an assignment with an exclamation sign before it: <code>a != b</code>.
+- Mai mare/mai mic decat: <code>a &gt; b</code>, <code>a &lt; b</code>.
+- Mai mare/mai mic sau egal decat: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
+- Verificarea egalitatii se scrie ca `a == b` (acordati atentie semnului dublu de egalitate `=`. Un singur semn de egalitate `a = b` ar insemna atribuire).
+- Inegalitate. In matematica aceasta se noteaza ca <code>&ne;</code>, in JavaScript se noteaza ca atribuire cu un semn de exclamare inaintea acestuia: <code>a != b</code>.
 
-## Boolean is the result
+## Rezultatul este Boolean
 
-Just as all other operators, a comparison returns a value. The value is of the boolean type.
+La fel ca ceilalti operatori, o comparatie returneaza o valoare. Valoarea returnata este de tip boolean.
 
-- `true` -- means "yes", "correct" or "the truth".
-- `false` -- means "no", "wrong" or "a lie".
+- `true` -- inseamna "da", "corect" sau "adevarat".
+- `false` -- inseamna "nu", "gresit" sau "fals".
 
-For example:
+De exemplu:
 
 ```js run
-alert( 2 > 1 );  // true (correct)
-alert( 2 == 1 ); // false (wrong)
-alert( 2 != 1 ); // true (correct)
+alert( 2 > 1 );  // true (corect)
+alert( 2 == 1 ); // false (gresit)
+alert( 2 != 1 ); // true (corect)
 ```
 
-A comparison result can be assigned to a variable, just like any value:
+Rezultatul unei comparatii poate fi atribuit unei variabile, ca si oricare alta valoare:
 
 ```js run
-let result = 5 > 4; // assign the result of the comparison
+let result = 5 > 4; // atribuie rezultatul comparatiei
 alert( result ); // true
 ```
 
-## String comparison
+## Comparatiile pentru String
 
-To see which string is greater than the other, the so-called "dictionary" or "lexicographical" order is used.
+Pentru a vedea care string este mai mare decat celalalt, asa numita ordine dupa dictionar sau lexicografica este aplicata.
 
-In other words, strings are compared letter-by-letter.
+Cu alte cuvinte, string-urile sunt comparate litera cu litera.
 
-For example:
+De exemplu:
 
 ```js run
 alert( 'Z' > 'A' ); // true
@@ -43,26 +43,26 @@ alert( 'Glow' > 'Glee' ); // true
 alert( 'Bee' > 'Be' ); // true
 ```
 
-The algorithm to compare two strings is simple:
+Algoritmul compararii a doua string-uri este simplu:
 
-1. Compare first characters of both strings.
-2. If the first one is greater(or less), then the first string is greater(or less) than the second. We're done.
-3. Otherwise if first characters are equal, compare the second characters the same way.
-4. Repeat until the end of any string.
-5. If both strings ended simultaneously, then they are equal. Otherwise the longer string is greater.
+1. Se compara primele caractere ale ambelor string-uri.
+2. Daca primul este mai mare (sau mai mic), atunci primul string este mai mare (sau mai mic) decat celalalt.
+3. In caz contrar, daca aceste doua caractere sunt egale, incepe compararea caracterelor secunde dupa aceeasi metoda.
+4. Operatiunea se repeta pana la sfarsitul string-urilor.
+5. Daca ambele string-uri se sfarsesc simultan, atunci acestea sunt egale. In caz contrar, string-ul mai lung este mai mare.
 
-In the example above, the comparison `'Z' > 'A'` gets the result at the first step.
+In exemplul de mai sus, comparatia `'Z' > 'A'` ofera rezultatul la primul pas al algoritmului. 
 
-Strings `"Glow"` and `"Glee"` are compared character-by-character:
+String-urile `"Glow"` si `"Glee"` sunt comparate caracter cu caracter:
 
-1. `G` is the same as `G`.
-2. `l` is the same as `l`.
-3. `o` is greater than `e`. Stop here. The first string is greater.
+1. `G` este la fel ca `G`.
+2. `l` este la fel ca `l`.
+3. `o` este mai mare ca `e`. Aici compararea sfarseste. Primul string este mai mare.
 
-```smart header="Not a real dictionary, but Unicode order"
-The comparison algorithm given above is roughly equivalent to the one used in book dictionaries or phone books. But it's not exactly the same.
+```smart header="Nu dupa ordinea dictionarului, ci dupa ordinea Unicode"
+Algoritmul de comparare prezentat mai sus este aproape echivalent cu cel utilizat in dictionare si cartile telefonice. Dar nu este exact la fel.
 
-For instance, case matters. A capital letter `"A"` is not equal to the lowercase `"a"`. Which one is greater? Actually, the lowercase `"a"` is. Why? Because the lowercase character has a greater index in the internal encoding table (Unicode). We'll get back to specific details and consequences in the chapter <info:string>.
+De exemplu, litera majuscula `"A"` nu este egala cu litera minuscula `"a"`. Care este mai mare? De fapt, minuscula `"a"` este mai mare. Dece? Pentru ca acest caracter are un index mai mare in internal encoding table (Unicode). O sa ne intoarcem mai detaliat la acestea in capitolul <info:string>.
 ```
 
 ## Comparison of different types
